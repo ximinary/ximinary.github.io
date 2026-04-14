@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+  <link rel="icon" href="/Web/matf/icon.png" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root    { --main-color: #E8DCE6; --sub-color: #E8DCE6; }
+
+    .colorD_  { --main-color: #BA96EA; --sub-color: #BA96EA; }
+    .colorD0  { --main-color: #E8DCE6; --sub-color: #E8DCE6; }
+
+    .button_default {
+        background-color: #101016;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #E8DCE6; 
+        color: #E8DCE6;
+        padding: 2px 4px;
+        text-align: center;
+        text-decoration: none;
+        display: 4px;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button_subject {
+        background-color: #242434;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: var(--main-color);
+        color: #E8DCE6;
+        padding: 4px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: 4px;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .brd {
+        border-left: 6px solid var(--main-color);
+        border-top: 6px solid var(--main-color);
+        padding: 5px;
+    }
+    .brd_top {
+        border-top: 6px solid #E8DCE6;
+        padding: 5px;
+    }
+
+    body {
+        color: #E8DCE6;
+        background-color: #242434;
+        font: 1.0rem "Verdana", sans-serif;
+    }
+
+    ::-moz-selection { color: #E8DCE6; background: #101016; }
+    ::selection      { color: #E8DCE6; background: #101016; }
+    a {
+        color: var(--main-color);
+    }
+    a:not([class*="button_"]):visited {
+        color: var(--sub-color);
+    }
+    a:not([class*="button_"]):active {
+        color: var(--main-color);
+    }
+    a.nounderline {
+        text-decoration: none;
+    }
+
+    /* Footer */
+    #page-container { position: relative; min-height: 97vh; }
+    #content-wrap { padding-bottom: 2.5rem; }
+    #footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+  </style>
+  
+  
+  <title>{{ page.title }}</title>
+</head>
+<body class={{ page.color }}>
+  <div id="page-container">
+    <div id="content-wrap">      
+       <main>
+            {{ content }}
+       </main>
+    </div>
+    <footer id="footer">
+      <p>&copy; Do not copy.</p>
+    </footer>
+  </div>
+</body>
+</html>

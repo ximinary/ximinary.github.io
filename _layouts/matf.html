@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<head>
+  <link rel="icon" href="/web/icon.png" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root    { --main-color: #E8DCE6; --sub-color: #E8DCE6; }
+
+    .color_  { --main-color: #BA96EA; --sub-color: #BA96EA; }
+    .color0  { --main-color: #E8DCE6; --sub-color: #E8DCE6; }
+    .color1  { --main-color: #F4A460; --sub-color: #F4A460; }
+    .color2  { --main-color: #FFD700; --sub-color: #FFD700; }
+    .color3  { --main-color: #33C7FF; --sub-color: #33C7FF; }
+    .color4  { --main-color: #DC143C; --sub-color: #DC143C; }
+    .color5  { --main-color: #808080; --sub-color: #808080; }
+    .color6  { --main-color: #24FCC4; --sub-color: #24FCC4; }
+    .color7  { --main-color: #FF1493; --sub-color: #FF1493; }
+    .color8  { --main-color: #228B22; --sub-color: #228B22; }
+    .color9  { --main-color: #a120ec; --sub-color: #a120ec; }
+    .color10 { --main-color: #66be19; --sub-color: #66be19; }
+    .color11 { --main-color: #2923FF; --sub-color: #2923FF; }
+    .color12 { --main-color: #be0e53; --sub-color: #be0e53; }
+    .color13 { --main-color: #fc9cd1; --sub-color: #fc9cd1; }
+    .color14 { --main-color: #ff5836; --sub-color: #ff5836; }
+    .color15 { --main-color: #5d9a7e; --sub-color: #5d9a7e; }
+    .color16 { --main-color: #c03f8c; --sub-color: #c03f8c; }
+    .color17 { --main-color: #5d52ad; --sub-color: #5d52ad; }
+    .color18 { --main-color: #266c98; --sub-color: #266c98; }
+    .color19 { --main-color: #ae7a42; --sub-color: #ae7a42; }
+    .color20 { --main-color: #b16563; --sub-color: #b16563; }
+    .color21 { --main-color: #c0260f; --sub-color: #c0260f; }
+    .color22 { --main-color: #4ca145; --sub-color: #4ca145; }
+    .color23 { --main-color: #b7b730; --sub-color: #b7b730; }
+
+    .button_default {
+        background-color: #101016;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #E8DCE6; 
+        color: #E8DCE6;
+        padding: 2px 4px;
+        text-align: center;
+        text-decoration: none;
+        display: 4px;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button_subject {
+        background-color: #242434;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 3px;
+        border-color: var(--main-color);
+        color: #E8DCE6;
+        padding: 4px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    
+    .accordion {
+        background-color: #101016;
+        color: #E8DCE6;
+        cursor: pointer;
+        padding: 18px;
+        width: 300px;
+        border: 1px solid #E8DCE6;
+        text-align: left;
+        outline: none;
+        font-size: 18px;
+        font-family: Verdana;
+        transition: 0.4s;
+    }
+    .active, .accordion:hover {
+        background-color: #101016;
+    }
+    .panel {
+        padding: 0 18px;
+        width: 300px;
+        background-color: #242434;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .brd {
+        border-left: 6px solid var(--main-color);
+        border-top: 6px solid var(--main-color);
+        padding: 5px;
+    }
+    .brd_top {
+        border-top: 6px solid #E8DCE6;
+        padding: 5px;
+    }
+
+    body {
+        color: #E8DCE6;
+        background-color: #242434;
+        font: 1.0rem "Verdana", sans-serif;
+    }
+
+    ::-moz-selection { color: #E8DCE6; background: #101016; }
+    ::selection      { color: #E8DCE6; background: #101016; }
+    a {
+        color: var(--main-color);
+    }
+    a:not([class*="button_"]):visited {
+        color: var(--sub-color);
+    }
+    a:not([class*="button_"]):active {
+        color: var(--main-color);
+    }
+    a.nounderline {
+        text-decoration: none;
+    }
+
+    /* Footer */
+    #page-container { position: relative; min-height: 97vh; }
+    #content-wrap { padding-bottom: 2.5rem; }
+    #footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+
+    /* Top navigation */
+    .button_navigation {
+        background-color: #101016;
+        overflow: hidden;
+    }
+    .button_navigation a {
+        float: left;
+        color: #E8DCE6;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .button_navigation a:visited {
+        color: #E8DCE6;
+    }
+    .button_navigation a:hover {
+        background-color: #E8DCE6;
+        color: #101016;
+    }
+
+
+    @media (max-width: 750px) {
+        .button_navigation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+  </style>
+  
+  <!-- <link rel="stylesheet" href="../style.css"> -->
+  <title>{{ page.title }}</title>
+</head>
+<body class={{ page.color }}>
+  <div id="page-container">
+    <div id="content-wrap">
+      <header>
+          <div class="button_navigation">
+            <div>
+              <a class="active" href="/web">Почетна</a>
+              <a class="hover-trigger" data-panel="panel0">О мени</a>
+              <a class="active" style="color: #b2009f;" href="/web/obsidian/home.html" target="_blank">Obsidian</a>
+            </div>
+            <div>
+              <a class="hover-trigger" data-panel="panel1">1. сем</a>
+              <a class="hover-trigger" data-panel="panel2">2. сем</a>
+              <a class="hover-trigger" data-panel="panel3">3. сем</a>
+              <a class="hover-trigger" data-panel="panel4">4. сем</a>
+            </div>
+            <div>
+              <a class="hover-trigger" data-panel="panel5">5. сем</a>
+              <a class="hover-trigger" data-panel="panel6">6. сем</a>
+            </div>
+          </div>
+          <div class="panel" id="panel0">
+              <p><a href="/web/ocene" class="button_subject color0">Оцене</a></p>
+              <p><a href="/web/projekti" class="button_subject color0">Пројекти</a></p>
+              <p><a href="https://linktr.ee/ximinary" class="button_subject color0">Друштвене мреже</a></p>
+          </div>
+          <div class="panel" id="panel1">
+              <p><a href="/web/1sem/laag" class="button_subject color1">ЛААГ <i>(Ракић)</i></a></p>
+              <p><a href="/web/1sem/ds1" class="button_subject color2">Дискретне структуре 1</a></p>
+              <p><a href="/web/1sem/p1" class="button_subject color3">Програмирање 1</a></p>
+              <p><a href="/web/1sem/uoar1" class="button_subject color4">УОАР 1</a></p>
+              <p><a href="/web/1sem/tnp" class="button_subject color6">ТНП</a></p>
+              <p><a href="/web/1sem/eng1" class="button_subject color5">Енглески 1</a></p>
+          </div>
+          <div class="panel" id="panel2">
+              <p><a href="/web/2sem/a1" class="button_subject color7">Анализа 1</a></p>
+              <p><a href="/web/2sem/ds2" class="button_subject color2">Дискретне структуре 2</a></p>
+              <p><a href="/web/2sem/p2" class="button_subject color3">Програмирање 2</a></p>
+              <p><a href="/web/2sem/uoar2" class="button_subject color4">УОАР 2</a></p>
+              <p><a href="/web/2sem/zetetika" class="button_subject color8">Зететика</a></p>
+              <p><a href="/web/2sem/eng2" class="button_subject color5">Енглески 2</a></p>
+          </div>
+          <div class="panel" id="panel3">
+              <p><a href="/web/3sem/a2" class="button_subject color7">Анализа 2</a></p>
+              <p><a href="/web/3sem/geom" class="button_subject color1">Геометрија</a></p>
+              <p><a href="/web/3sem/aisp" class="button_subject color11">АиСП</a></p>
+              <p><a href="/web/3sem/oop" class="button_subject color9">ООП</a></p>
+              <p><a href="/web/3sem/os" class="button_subject color12">Оперативни системи</a></p>
+          </div>
+          <div class="panel" id="panel4">
+              <p><a href="/web/4sem/a3" class="button_subject color7">Анализа 3</a></p>
+              <p><a href="/web/4sem/alg1" class="button_subject color14">Алгебра 1</a></p>
+              <p><a href="/web/4sem/kiaa" class="button_subject color11">КиАА</a></p>
+              <p><a href="/web/4sem/uvit" class="button_subject color10">УВИТ</a></p>
+              <p><a href="/web/4sem/meh" class="button_subject color13">Основи механике</a></p>
+          </div>
+          <div class="panel" id="panel5">
+              <p><a href="/web/5sem/ver" class="button_subject color15">Вероватноћа</a></p>
+              <p><a href="/web/5sem/unm" class="button_subject color16">УНМ</a></p>
+              <p><a href="/web/5sem/rbp" class="button_subject color17">РБП</a></p>
+              <p><a href="/web/5sem/ppj" class="button_subject color21">ППЈ</a></p>
+              <p><a href="/web/5sem/rg" class="button_subject color23">Рачунарска графика</a></p>
+          </div>
+          <div class="panel" id="panel6">
+              <p><a href="/web/6sem/stat" class="button_subject color22">Статистика</a></p>
+              <p><a href="/web/6sem/vi" class="button_subject color19">Вештачка интелигенција</a></p>
+              <p><a href="/web/6sem/ip1" class="button_subject color18">Истраживање података 1</a></p>
+              <p><a href="/web/6sem/pp" class="button_subject color20">Програмске парадигме</a></p>
+              <p><a href="/web/6sem/progbp" class="button_subject color17">ПрогБП</a></p>
+          </div>
+      </header>
+  
+  <script>
+  
+  
+      document.addEventListener("DOMContentLoaded", function() {
+          var triggers = document.querySelectorAll(".hover-trigger");
+
+          var panels = document.querySelectorAll(".panel");
+      
+          triggers.forEach(function(trigger) {
+              var panelId = trigger.getAttribute("data-panel");
+
+              var panel = document.getElementById(panelId);
+              
+              if (!window.matchMedia("(max-width: 750px)").matches) {
+                  var rect = trigger.getBoundingClientRect();
+                  panel.style.position = 'relative';
+                  panel.style.left = rect.left - 25 + 'px';
+              }
+
+      
+              trigger.addEventListener("mouseover", function() {
+                  panels.forEach(function(p) {
+                      p.style.maxHeight = "0";
+                  });
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+              });
+      
+              trigger.addEventListener("mouseout", function(event) {
+                  if (!panel.contains(event.relatedTarget)) {
+                      panel.style.maxHeight = "0";
+                  }
+              });
+      
+              panel.addEventListener("mouseover", function() {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+              });
+      
+              panel.addEventListener("mouseout", function(event) {
+                  if (!trigger.contains(event.relatedTarget)) {
+                      panel.style.maxHeight = "0";
+                  }
+              });
+          });
+
+      });
+  </script>
+  
+       <main>
+            {{ content }}
+       </main>
+    </div>
+    <footer id="footer">
+      <p>&copy; Do not copy. Version 1.3.4 from 10.10.2025</p>
+    </footer>
+  </div>
+</body>
+</html>
